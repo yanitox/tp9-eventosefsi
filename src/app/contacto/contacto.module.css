@@ -1,0 +1,83 @@
+.container {
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #0070f3;
+  }
+  
+  .contactInfo {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+  
+  .subtitle {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #0070f3;
+  }
+  
+  .mapContainer {
+    margin-bottom: 30px;
+  }
+  
+  .form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input, .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .input:focus, .textarea:focus {
+    border-color: #0070f3;
+    outline: none;
+  }
+  
+  .textarea {
+    height: 150px; /* Ajusta la altura según necesites */
+  }
+  
+  .submitButton {
+    padding: 10px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submitButton:hover {
+    background-color: #005bb5;
+  }
+  

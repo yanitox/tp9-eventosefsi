@@ -65,10 +65,10 @@ const Register = () => {
               required
             />
           </div>
-          <button type="submit" className={styles.button}>Registrarse</button>
+          <button type="submit" className={styles.button}> <Link href="/" className={styles.link}>Registrarse</Link></button>
         </form>
         <p className={styles.footer}>
-          ¿Ya tienes una cuenta? <Link href="./" className={styles.link}>Inicia sesión aquí</Link>
+          ¿Ya tienes una cuenta? <Link href="/" className={styles.link}>Inicia sesión aquí</Link>
         </p>
       </div>
     </div>

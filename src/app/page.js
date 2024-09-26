@@ -33,6 +33,7 @@ const Login = () => {
           <div className={styles.inputGroup}>
             <label htmlFor="password" className={styles.label}>Contraseña</label>
             <input
+            
               type="password"
               id="password"
               className={styles.input}

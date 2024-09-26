@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './home.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,33 +26,55 @@ const events = [
 ];
 
 const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    const confirmed = window.confirm("¿Seguro que quieres cerrar la sesión?");
+    if (confirmed) {
+      window.location.href = "./"; // Redirigir a la página de inicio
+    }
+  };
+
+  useEffect(() => {
+    // Cargar el JavaScript de Bootstrap
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
+    script.integrity = "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz";
+    script.crossOrigin = "anonymous";
+    document.body.appendChild(script);
+  }, []);
+
   return (
-    
     <div className={styles.container}>
       <nav className={styles.navbar}>
-       
         <div className={styles.navLinks}>
           <Link href="/" className={styles.navLink}>Home</Link>
           <Link href="/contacto" className={styles.navLink}>Contacto</Link>
-          
         </div>
-        <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-      👤
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-       
-      </div>
-    </div>
-  </div>
-  </div>
-        
+        <div className={`accordion ${styles.accordion}`} id="accordionExample">
+          <div className={`accordion-item ${styles.accordionItem}`}>
+            <h2 className="accordion-header">
+              <button 
+                className="accordion-button" 
+                type="button" 
+                onClick={toggleAccordion}
+                aria-expanded={isOpen}
+              >
+                👤
+              </button>
+            </h2>
+            <div className={`${styles.accordionBody} ${isOpen ? styles.show : ''}`}>
+              <p>¡Hola!</p>
+              <button className={styles.logoutButton} onClick={handleLogout}>Cerrar sesión</button>
+            </div>
+          </div>
+        </div>
       </nav>
-      
+
       <h1 className={styles.title}>Listado de Eventos</h1>
       <div className={styles.eventList}>
         {events.map(event => (
@@ -65,9 +87,7 @@ const Home = () => {
         ))}
       </div>
     </div>
-    
   );
 };
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-//<Link href="/" className={styles.logo}></Link>
+
 export default Home;
