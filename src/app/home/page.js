@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './home.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Image from 'next/image';
+import img from '../../../kal.png';
 
 const events = [
   {
@@ -38,7 +40,10 @@ const Home = () => {
       window.location.href = "./"; // Redirigir a la página de inicio
     }
   };
-
+  const script = document.querySelector('script[src="..."]');
+  if (script) {
+    document.body.removeChild(script);
+  }
   useEffect(() => {
     // Cargar el JavaScript de Bootstrap
     const script = document.createElement('script');
@@ -49,12 +54,19 @@ const Home = () => {
   }, []);
 
   return (
+    <>
     <div className={styles.container}>
       <nav className={styles.navbar}>
         <div className={styles.navLinks}>
           <Link href="/" className={styles.navLink}>Home</Link>
           <Link href="/contacto" className={styles.navLink}>Contacto</Link>
         </div>
+        <Image
+            src={img}
+            className={styles.logo}
+            width={200}
+            height={100}
+          />
         <div className={`accordion ${styles.accordion}`} id="accordionExample">
           <div className={`accordion-item ${styles.accordionItem}`}>
             <h2 className="accordion-header">
@@ -87,6 +99,17 @@ const Home = () => {
         ))}
       </div>
     </div>
+    <footer className={styles.footer}>
+      <div className={styles.footerContent}>
+        <p>© 2024 Eventos. Todos los derechos reservados.</p>
+        <div className={styles.socialLinks}>
+          <a href="#" className={styles.socialLink}>Facebook</a>
+          <a href="#" className={styles.socialLink}>Twitter</a>
+          <a href="#" className={styles.socialLink}>Instagram</a>
+        </div>
+      </div>
+    </footer>
+    </>
   );
 };
 
