@@ -58,7 +58,7 @@ const Home = () => {
     <div className={styles.container}>
       <nav className={styles.navbar}>
         <div className={styles.navLinks}>
-          <Link href="/" className={styles.navLink}>Home</Link>
+          <Link href="/home" className={styles.navLink}>Home</Link>
           <Link href="/contacto" className={styles.navLink}>Contacto</Link>
         </div>
         <Image
