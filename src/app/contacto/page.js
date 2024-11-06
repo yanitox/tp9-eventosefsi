@@ -46,6 +46,7 @@ const Contact = () => {
   }, []);
 
   return (
+    <>
     <div className={styles.container}>
       <nav className={styles.navbar}>
         <div className={styles.navLinks}>
@@ -138,6 +139,17 @@ const Contact = () => {
         <p><strong>Dirección:</strong> Calle Ejemplo 123, Ciudad, País</p>
       </div>
     </div>
+      <footer className={styles.footer}>
+      <div className={styles.footerContent}>
+        <p>© 2024 Eventos. Todos los derechos reservados.</p>
+        <div className={styles.socialLinks}>
+          <a href="#" className={styles.socialLink}>Facebook</a>
+          <a href="#" className={styles.socialLink}>Twitter</a>
+          <a href="#" className={styles.socialLink}>Instagram</a>
+        </div>
+      </div>
+    </footer>
+    </>
   );
 };
 

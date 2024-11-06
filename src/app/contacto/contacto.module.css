@@ -180,7 +180,8 @@
   }
   
   .form {
-    flex: 1; /* Permite que el formulario ocupe espacio disponible */
+    flex: 1;
+    width: 500px; /* Permite que el formulario ocupe espacio disponible */
   }
   
   .mapContainer {
