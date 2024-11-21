@@ -3,17 +3,20 @@
   min-height: 88.7vh; /* Asegura que el contenedor ocupe todo el alto */
   display: flex;
   flex-direction: column; /* Permite que los hijos se apilen verticalmente */
+  padding-bottom: 60px; /* Espacio para que el footer no se superponga */
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px;
-  background-color: #0070f3; /* Color de fondo del navbar */
+  background-color: #1d3557  ; /* Color de fondo del navbar */
   color: white;
   position: relative; /* Asegura que el contenido absoluto se alinee correctamente */
   z-index: 1; /* Asegura que el navbar esté por encima */
 }
+
 .navLinks {
   display: flex;
   gap: 20px; /* Espaciado entre los enlaces */
@@ -28,6 +31,7 @@
 .navLink:hover {
   text-decoration: underline; /* Subrayado al pasar el mouse */
 }
+
 .accordion-item {
   position: relative; /* Necesario para el posicionamiento absoluto del contenido */
 }
@@ -69,124 +73,157 @@
   color: white; /* Cambia el color de texto al pasar el mouse */
   background-color: red; /* Cambia el fondo al pasar el mouse */
 }
-  .title {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 36px;
-    color: #0070f3;
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 36px;
+  color: #1d3557  ;
+}
+
+.form {
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.input:focus, .textarea:focus {
+  border-color: #1d3557  ;
+  outline: none;
+}
+
+.textarea {
+  height: 150px;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1d3557  ;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #005bb5;
+}
+
+.footer {
+  background-color: #1d3557  ;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.socialLinks {
+  margin-top: 10px;
+}
+
+.socialLink {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+}
+
+.socialLink:hover {
+  text-decoration: underline;
+}
+
+
+.userMenu {
+  position: relative;
+}
+
+.userButton {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.userButton:hover {
+  transform: scale(1.1);
+}
+
+.modal {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  z-index: 10;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.greeting {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.logoutButton {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logoutButton:hover {
+  background-color: red;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  .contactInfo {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .subtitle {
-    font-size: 28px;
-    margin-bottom: 15px;
-    color: #0070f3;
-  }
-  
-  .mapContainer {
-    margin-bottom: 30px;
-  }
-  
-  .form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .formGroup {
-    margin-bottom: 20px;
-  }
-  
-  .label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .input, .textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  .input:focus, .textarea:focus {
-    border-color: #0070f3;
-    outline: none;
-  }
-  
-  .textarea {
-    height: 150px; /* Ajusta la altura según necesites */
-  }
-  
-  .submitButton {
-    padding: 10px;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .submitButton:hover {
-    background-color: #005bb5;
-  }
-  .footer {
-    background-color: #0070f3; /* Color de fondo del footer */
-    color: white;
-    text-align: center;
-    min-height: 100%;
-    padding: 20px 0;
-    margin-top: auto; /* Asegura que el footer esté al final de la página */
-  }
-  
-  .footerContent {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .socialLinks {
-    margin-top: 10px;
-  }
-  
-  .socialLink {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-  }
-  
-  .socialLink:hover {
-    text-decoration: underline; /* Subrayado al pasar el mouse */
-  }
-  .formContainer {
-    margin: 30px auto; /* Espaciado superior e inferior */
-    max-width: 800px; /* Limita el ancho del contenedor */
-    display: flex; /* Usa flexbox para colocar elementos en fila */
-    gap: 50px; /* Espaciado entre el formulario y el mapa */
-    align-items: baseline;
-  }
-  
-  .form {
-    flex: 1;
-    width: 500px; /* Permite que el formulario ocupe espacio disponible */
-  }
-  
-  .mapContainer {
-    flex: 1; /* Permite que el mapa ocupe espacio disponible */
-    min-width: 300px; /* Ancho mínimo para el mapa */
-  }
-  
-  
+}

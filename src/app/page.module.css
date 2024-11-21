@@ -55,12 +55,12 @@
 }
 
 .input:focus {
-  border-color: #0070f3;
+  border-color: #1d3557  ;
 }
 
 .button {
   padding: 12px;
-  background-color: #0070f3;
+  background-color: #1d3557  ;
   color: white;
   border: none;
   border-radius: 4px;
@@ -78,7 +78,7 @@
 }
 
 .link {
-  color: #0070f3;
+  color: #1d3557  ;
   text-decoration: none;
 }
 

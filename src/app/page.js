@@ -1,41 +1,47 @@
+// src/app/page.js
+
 "use client";
 import React, { useState } from 'react';
-import styles from "./page.module.css";
-import { useRouter } from 'next/navigation';  // Para redirigir al usuario
+import { useRouter } from 'next/navigation';
+import { UserProvider, useUser } from '../app/context/UserContext'; // Importar el UserProvider y el hook
+import styles from './page.module.css';
 import Link from 'next/link';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();  // Hook para redirigir al usuario
+  const { saveUserData } = useUser(); // Usar el hook del contexto
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Realizamos la solicitud POST al backend para iniciar sesión
       const response = await fetch('http://localhost:4000/api/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }), // Enviamos los datos del formulario
+        body: JSON.stringify({ username, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        // Guardamos los datos del usuario y el token en localStorage
-        localStorage.setItem('user', JSON.stringify({
+        // Guardamos los datos del usuario y el token en el contexto
+        const userData = {
           first_name: data.result.first_name,
           last_name: data.result.last_name,
-          token: data.token,
-        }));
+          username: data.result.username,
+        };
+        const token = data.token;
 
-        // Si la respuesta es exitosa, redirigimos al usuario a la página de inicio
+        saveUserData(userData, token); // Usar el contexto para guardar los datos
+
+        // Redirigimos al usuario a la página de inicio
         router.push('/home');
       } else {
-        alert(data.message || "Credenciales incorrectas.");  // Mostrar mensaje de error
+        alert(data.message || "Credenciales incorrectas.");
       }
     } catch (error) {
       console.error("Error al intentar iniciar sesión:", error);
@@ -84,4 +90,10 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default function Page() {
+  return (
+    <UserProvider>
+      <Login /> {/* Este es tu componente de login */}
+    </UserProvider>
+  );
+}

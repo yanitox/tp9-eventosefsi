@@ -1,34 +1,44 @@
 "use client";
 import React, { useState } from 'react';
-import styles from './registro.module.css';
+import { useUser } from '../context/UserContext';  // Importamos el hook para acceder al contexto
+import styles from './contacto.module.css';  // Tu archivo de estilos
 import Link from 'next/link';
 
-const Register = () => {
-  const [username, setUsername] = useState('');
+const Contacto = () => {
+  const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [mensaje, setMensaje] = useState('');
+
+  const { saveUserData } = useUser();  // Accedemos a la función para guardar los datos en el contexto
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica de registro
-    console.log('Registro info:', { username, email, password });
+
+    // Guardamos los datos del formulario en el contexto
+    saveUserData({
+      nombre,
+      email,
+      mensaje,
+    });
+
+    console.log('Formulario de contacto enviado:', { nombre, email, mensaje });
+
+    // Aquí podrías agregar la lógica para enviar los datos a un backend, por ejemplo.
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h1 className={styles.title}>Registro de Usuario</h1>
-        <p className={styles.subtitle}>Crea una cuenta para comenzar.</p>
+        <h1 className={styles.title}>Formulario de Contacto</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
-            <label htmlFor="username" className={styles.label}>Nombre de Usuario</label>
+            <label htmlFor="nombre" className={styles.label}>Nombre</label>
             <input
               type="text"
-              id="username"
+              id="nombre"
               className={styles.input}
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
               required
             />
           </div>
@@ -44,35 +54,24 @@ const Register = () => {
             />
           </div>
           <div className={styles.inputGroup}>
-            <label htmlFor="password" className={styles.label}>Contraseña</label>
-            <input
-              type="password"
-              id="password"
+            <label htmlFor="mensaje" className={styles.label}>Mensaje</label>
+            <textarea
+              id="mensaje"
               className={styles.input}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={mensaje}
+              onChange={(e) => setMensaje(e.target.value)}
               required
             />
           </div>
-          <div className={styles.inputGroup}>
-            <label htmlFor="confirmPassword" className={styles.label}>Confirmar Contraseña</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              className={styles.input}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className={styles.button}> <Link href="/" className={styles.link}>Registrarse</Link></button>
+          <button type="submit" className={styles.button}>Enviar</button>
         </form>
-        <p className={styles.footer}>
-          ¿Ya tienes una cuenta? <Link href="/" className={styles.link}>Inicia sesión aquí</Link>
-        </p>
+      </div>
+      <div className={styles.mapContainer}>
+        {/* Aquí podrías agregar tu mapa */}
+        <div className={styles.map}>Mapa de contacto</div>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Contacto;

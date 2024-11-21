@@ -100,6 +100,16 @@ const Home = () => {
           )}
         </div>
       </div>
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+          <div className={styles.socialLinks}>
+            <Link href="#" className={styles.socialLink}>Facebook</Link>
+            <Link href="#" className={styles.socialLink}>Twitter</Link>
+            <Link href="#" className={styles.socialLink}>Instagram</Link>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
